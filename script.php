@@ -1,4 +1,6 @@
 <?php 
+	session_start();
+
 	$categoria = [];
 	$categoria [] = "Infântil";
 	$categoria [] = "Adolescente";
@@ -10,21 +12,21 @@
 	$confirmar = $_POST['confirmar'];
 
 	echo "<a href='index.php'>Voltar</a> <br>";	
-
+	
 	//validação
 	if(empty($vNome) || empty($vIdade)){
-		echo "<br>Todos os campos devem ser preenchidos";
-		return;
-	} else if(strlen($vNome) < 3 || strlen($vNome) > 32){
-		echo "<br>O nome deve conter mais de 3 caracteres";
-		return;
-	} else if($vIdade < 6){
-		echo "<br>A idade minima é 6";
-		return;
-	} else if(!is_numeric($vIdade)){
-		echo "<br>A idade tem que ser um valor inteiro";
-		return;
-	}else {
+		$_SESSION['erro'] = '<br>Todos os campos devem ser preenchidos';		
+		header('Location:index.php');
+	}if(strlen($vNome) < 3 || strlen($vNome) > 32){
+		$_SESSION['erro'] = '<br>O nome deve conter mais de 3 caracteres';
+		header('Location:index.php');				
+	}if($vIdade < 6){
+		$_SESSION['erro'] = '<br>A idade minima é 6';	
+		header('Location:index.php');			
+	}if(!is_numeric($vIdade)){
+		$_SESSION['erro'] = '<br>A idade tem que ser um valor inteiro';		
+		header('Location:index.php');		
+	}
 		//condições
 		if($vIdade >= 6 && $vIdade <= 12){
 			for ($i=0; $i < count($categoria); $i++) { 
@@ -50,8 +52,7 @@
 					echo "Categoria: ".$categoria[$i]."<br>";
 				}
 			}
-		}	
-	}
+		}		
 	
 	
 ?>

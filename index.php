@@ -1,3 +1,6 @@
+<?php 
+	session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -22,6 +25,12 @@
 	<p>formulário para inscrição de competidores</p>
 
 	<form action="script.php" method="POST">
+		<?php 
+			$erro = isset($_SESSION['erro']) ? $_SESSION['erro']: "";
+
+			echo $erro;
+			session_destroy();
+		?>
 		<label for="nome">Nome:</label>
 		<input type="text" name="nome" placeholder="seu nome">		
 		<label for="idade">Idade</label>
