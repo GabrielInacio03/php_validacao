@@ -1,5 +1,9 @@
 <?php 
 	session_start();
+	include 'servicos/categoria.php';
+	include 'servicos/mensagens.php';
+	include 'servicos/validacao.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -26,10 +30,11 @@
 
 	<form action="script.php" method="POST">
 		<?php 
-			$erro = isset($_SESSION['erro']) ? $_SESSION['erro']: "";
+			$erro = obtErros();
 
-			echo $erro;
-			session_destroy();
+			if(!empty($erro)){
+				echo $erro;							
+			}			
 		?>
 		<label for="nome">Nome:</label>
 		<input type="text" name="nome" placeholder="seu nome">		

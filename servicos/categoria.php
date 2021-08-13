@@ -1,7 +1,7 @@
 <?php  
 
     
-    function definirCategoria(int $vIdade, string $vNome){
+    function definirCategoria($vNome, $vIdade){
         $categoria = [];
         $categoria [] = "Infântil";
         $categoria [] = "Adolescente";
@@ -40,7 +40,7 @@
                 }
             }		
         } else {
-            return obtErros();
+            return obtErros();                   
         }      
     }
 ?>

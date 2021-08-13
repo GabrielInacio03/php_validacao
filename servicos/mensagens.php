@@ -1,5 +1,5 @@
 <?php 
-    session_start();
+    
 
 
     function setSucesso(string $msg): void{
@@ -28,15 +28,16 @@
         }
     }
 
-    function removerErros(): void{
+    function removerErros(){
         if(isset($_SESSION['erros'])){
-            return unset($_SESSION['erros'];);
+            unset($_SESSION['erros']);
+            return;
         }
     }
-    function removerSucessos(): void{
+    function removerSucessos(){
         if(isset($_SESSION['sucessos'])){
             //eliminar o que tiver setado
-            return unset($_SESSION['sucessos'];);
+            return;
         }
     }
 ?>

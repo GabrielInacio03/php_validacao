@@ -1,12 +1,14 @@
 <?php 
 	session_start();	
+
+	include 'servicos/categoria.php';
+	include 'servicos/mensagens.php';
+	include 'servicos/validacao.php';
+
 	//Recebendo informações
 	$vNome = $_POST['nome'];
-	$vIdade = $_POST['idade'];
-	$confirmar = $_POST['confirmar'];
-
+	$vIdade = $_POST['idade'];	
 	echo "<a href='index.php'>Voltar</a> <br>";	
 	
-	definirCategoria($vIdade,$vNome);
-	
+	definirCategoria($vNome, $vIdade);			
 ?>
