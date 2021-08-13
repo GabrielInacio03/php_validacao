@@ -1,7 +1,7 @@
 <?php 
     session_start();
     
-    function validaCampos(string $nome, string $idade): bool
+    function validaCampos(string $vNome, string $vIdade): bool
     {       
         //validação
         if(empty($vNome) || empty($vIdade)){           
